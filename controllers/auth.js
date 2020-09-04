@@ -51,7 +51,7 @@ exports.signin = (req, res) => {
     }
 
     //create token
-    const token = jwt.sign({ _id: user._id }, process.env.SECRET);
+    const token = jwt.sign({ _id: user._id }, 'Shhhh');
 
     //put token in cookie
     res.cookie("token", token, { expire: new Date() + 9999 });
@@ -72,7 +72,7 @@ exports.signout = (req, res) => {
 //PROTECTED ROUTES
 
 exports.isSignedIn = expressJwt({
-  secret: process.env.SECRET,
+  secret: 'Shhhh',
   userProperty: "auth"
 });
 
