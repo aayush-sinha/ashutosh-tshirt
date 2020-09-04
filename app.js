@@ -46,7 +46,6 @@ app.get("/testroute", isSignedIn, (req,res)=>{
 })
 
 // category
-
 const { getCategoryByID, createCategory, getCategory, getAllCategory, updateCategory, removeCategory } = require("./controllers/category");
 const { isAuthenticated, isAdmin } = require("./controllers/auth");
 const { getUserByID } = require("./controllers/user");
@@ -94,7 +93,6 @@ app.get("/products/categories", getAllUniqueCategories);
 
 
 //user
-
 const { getUser, updateUser, userPurchaseList, successMessage } = require("./controllers/user");
 app.param("userId", getUserByID);
 app.get("/user/:userId", isSignedIn, isAuthenticated ,getUser);
