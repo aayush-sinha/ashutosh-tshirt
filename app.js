@@ -19,12 +19,12 @@ const paymentBRoutes = require("./routes/paymentbRoutes");
 app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(cors());
-app.use("/api", authRoutes);
-app.use("/api", userRoutes);
-app.use("/api", categoryRoutes);
-app.use("/api", productRoutes);
-app.use("/api", orderRoutes);
-app.use("/api", paymentBRoutes);
+app.use("/", authRoutes);
+app.use("/", userRoutes);
+app.use("/", categoryRoutes);
+app.use("/", productRoutes);
+app.use("/", orderRoutes);
+app.use("/", paymentBRoutes);
 
 //Testing
 // app.get("/success",(req, res)=>{
