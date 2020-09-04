@@ -91,7 +91,8 @@ app.put("/product/:userId/:productId",  isSignedIn, isAuthenticated, isAdmin, up
 app.get("/products", getAllProducts);
 app.get("/products/categories", getAllUniqueCategories);
 
-
+//test
+app.get('/',(req,res)=>res.send(200))
 //user
 const { getUser, updateUser, userPurchaseList, successMessage } = require("./controllers/user");
 app.param("userId", getUserByID);
