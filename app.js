@@ -1,4 +1,5 @@
 require("dotenv").config();
+
 const mongoose = require("mongoose");
 const express = require("express");
 const app = express();
@@ -25,6 +26,7 @@ mongoose
 //ROUTES
 
 //Auth
+
 const {check, validationResult} = require("express-validator");
 const {signout,signup,signin, isSignedIn} = require("./controllers/auth");
 
@@ -46,6 +48,7 @@ app.get("/testroute", isSignedIn, (req,res)=>{
 })
 
 // category
+
 const { getCategoryByID, createCategory, getCategory, getAllCategory, updateCategory, removeCategory } = require("./controllers/category");
 const { isAuthenticated, isAdmin } = require("./controllers/auth");
 const { getUserByID } = require("./controllers/user");
@@ -69,6 +72,8 @@ app.get("/order/status/:userId", isSignedIn, isAuthenticated, isAdmin, getOrderS
 app.put("/order/:orderId/status/:userId", isSignedIn, isAuthenticated, isAdmin, updateStatus);
 
 //payment
+
+
 const { getToken, processPayment } = require("./controllers/paymentb");
 app.param("userId", getUserByID);
 app.get("/payment/gettoken/:userId", isSignedIn, isAuthenticated, getToken);
@@ -91,10 +96,10 @@ app.put("/product/:userId/:productId",  isSignedIn, isAuthenticated, isAdmin, up
 app.get("/products", getAllProducts);
 app.get("/products/categories", getAllUniqueCategories);
 
-//test
-app.get('/',(req,res)=>res.send(200))
+
 //user
-const { getUser, updateUser, userPurchaseList, successMessage } = require("./controllers/user");
+
+const {  getUser, updateUser, userPurchaseList, successMessage } = require("./controllers/user");
 app.param("userId", getUserByID);
 app.get("/user/:userId", isSignedIn, isAuthenticated ,getUser);
 app.put("/user/:userId", isSignedIn, isAuthenticated, updateUser);
